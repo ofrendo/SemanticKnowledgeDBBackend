@@ -4,4 +4,4 @@ target
 # Eclipse files
 .project
 .classpath
-/bin
+bin
