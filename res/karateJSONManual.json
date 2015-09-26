@@ -1,0 +1,138 @@
+{
+	"@context": {
+		"dc": "http://purl.org/dc/elements/1.1/",
+		"karate": "http://www.heidelberg-karate.de/karate#",
+		"owl": "http://www.w3.org/2002/07/owl#",
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+		"xsd": "http://www.w3.org/2001/XMLSchema#"
+	},
+	"@graph": [
+		{
+			"@id": "http://www.heidelberg-karate.de/karate",
+			"@type": "owl:Ontology",
+			"dc:description": "An attempt at creating an ontology for Karate",
+			"dc:title": "Karate ontology"
+		},
+		{
+			"@id": "karate:moeglichkeit",
+			"@type": "owl:AnnotationProperty"
+		},
+		{
+			"@id": "karate:ausfuehrung",
+			"@type": "owl:AnnotationProperty"
+		},
+		{
+			"@id": "karate:abfolge",
+			"@type": "owl:AnnotationProperty"
+		},
+		{
+			"@id": "karate:videoLink",
+			"@type": "owl:AnnotationProperty"
+		},
+		{
+			"@id": "karate:seite",
+			"@type": "owl:Class"
+		},
+		{	
+			"@id": "karate:oi", 
+			"@type": "karate:seite" 
+		},
+		{	
+			"@id": "karate:gyaku", 
+			"@type": "karate:seite" 
+		},
+
+
+		{
+			"@id": "karate:technik",
+			"@type": [
+				"owl:Class",
+				"karate:kategorie"
+			],
+			"rdfs:label": "Techniken",
+			"rdfs:comment": "Alle Techniken."
+		},
+		{
+			"@id": "karate:schlag",
+			"@type": "owl:Class",
+			"rdfs:label": "Schlagtechniken",
+			"rdfs:comment": "Alle Schlagtechniken.",
+			"rdfs:subClassOf": {
+				"@id": "karate:technik"
+			}
+		},
+		{
+			"@id": "karate:abwehr",
+			"@type": "owl:Class",
+			"rdfs:label": "Abwehrtechniken",
+			"rdfs:comment": "Alle Abwehrtechniken.",
+			"rdfs:subClassOf": {
+				"@id": "karate:technik"
+			}
+		},
+
+
+
+		{
+			"@id": "karate:zuki",
+			"@type": "owl:Class",
+			"rdfs:label": "Zuki",
+			"rdfs:subClassOf": {
+				"@id": "karate:schlag"
+			}
+		},
+		{
+			"@id": "karate:oiZuki",
+			"@type": [
+				"karate:zuki",
+				"karate:schlag"
+			],
+			"rdfs:label": "Oi Zuki",
+			"karate:videoLink": "https://www.youtube.com/watch?v=lh_jbMYa1WE",
+			"karate:ausfuehrung": "karate:oi"
+		},
+		{
+			"@id": "karate:gyakuZuki",
+			"@type": [
+				"karate:zuki",
+				"karate:schlag"
+			],
+			"rdfs:label": "Gyaku Zuki",
+			"karate:videoLink": "https://www.youtube.com/watch?v=XG68G6mpkUc",
+			"karate:ausfuehrung": "karate:gyaku"
+		},
+
+		{
+			"@id": "karate:gedanBarai"
+		},
+
+
+		{
+			"@id": "karate:kata",
+			"@type": [
+				"owl:Class",
+				"karate:kategorie"
+			],
+			"rdfs:comment": "Alle Katas.",
+			"rdfs:label": "Katas"
+		},
+		{
+			"@id": "karate:heianShodan",
+			"@type": "karate:kata",
+			"rdfs:comment": "Erste Kata",
+			"rdfs:label": "Heian Shodan",
+			"karate:abfolge": {
+				"@list": [
+					{"@id": "karate:oiZuki"},
+					{"@id": "karate:gedanBarai1"},
+					{"@id": "karate:gedanBarai2"},
+					{"@id": "karate:gyakuZuki"}
+				]
+			}
+		}
+
+
+
+	]
+}
